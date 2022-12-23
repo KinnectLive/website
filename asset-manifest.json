@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.js": "/website/static/js/main.a321e9cd.js",
+    "static/media/teamImage.png": "/website/static/media/teamImage.25e4ea61b2fa0c3033bf.png",
+    "static/media/chakraHero.png": "/website/static/media/chakraHero.46ca170d1c68981d3acc.png",
+    "static/media/empty.svg": "/website/static/media/empty.f15dff6ec262d55de30a0be9ead3d24d.svg",
+    "index.html": "/website/index.html",
+    "main.a321e9cd.js.map": "/website/static/js/main.a321e9cd.js.map"
+  },
+  "entrypoints": [
+    "static/js/main.a321e9cd.js"
+  ]
+}
