@@ -1,13 +1,12 @@
 {
   "files": {
-    "main.js": "/static/js/main.83a571a4.js",
-    "static/media/teamImage.png": "/static/media/teamImage.25e4ea61b2fa0c3033bf.png",
-    "static/media/chakraHero.png": "/static/media/chakraHero.46ca170d1c68981d3acc.png",
+    "main.js": "/static/js/main.fc23bf56.js",
     "static/media/empty.svg": "/static/media/empty.f15dff6ec262d55de30a0be9ead3d24d.svg",
+    "static/media/logo.png": "/static/media/logo.27beb32cf2248246cae9.png",
     "index.html": "/index.html",
-    "main.83a571a4.js.map": "/static/js/main.83a571a4.js.map"
+    "main.fc23bf56.js.map": "/static/js/main.fc23bf56.js.map"
   },
   "entrypoints": [
-    "static/js/main.83a571a4.js"
+    "static/js/main.fc23bf56.js"
   ]
 }
