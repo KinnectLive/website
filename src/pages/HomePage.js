@@ -1,72 +1,56 @@
-import { Button, Center, HStack, Text, VStack } from '@chakra-ui/react';
+import {  
+  Center,
+  VStack 
+} from '@chakra-ui/react';
 import { useEffect, useState } from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import AddTask from '../components/Tasks/AddTask';
 import TaskList from '../components/TaskList';
-import Calendar from '../components/Calendar';
 import supabase from '../supabase';
-import NavBar from '../components/NavBar';
-import { Routes, Route } from 'react-router-dom';
-import Settings from '../components/Settings';
+import ClearTasks from '../components/Tasks/ClearTasks';
 
-function HomePage() {
-  //React Router DOM
+
+function HomePage() {          
+  //React Router DOM           
   const navigate = useNavigate();
-  const { state } = useLocation();
-  //Supabase
+                               
+  //Supabase                   
   const [session, setSession] = useState();
-  const [user, setUser] = useState(undefined);
-
-  const whatAmIShowing = function () {
-    supabase.auth.getSession().then(table => {
-      if (!table.data?.session) {
-        navigate('/login');
-      } else {
-        setSession(table.data.session);
-      }
-    });
-  };
-
-  const onSignOut = async function () {
-    const { error } = await supabase.auth.signOut();
-    navigate('/login');
-  };
-
+                               
   const getSession = async function () {
-    console.log('Entered');
     await supabase.auth.getSession().then(table => {
       if (!table.data?.session) {
         console.log("\nThere's no session");
-        navigate('/login');
-      } else {
+        navigate('/login');    
+      } else {                 
         setSession(table.data);
-      }
-    });
-  };
-
-  useEffect(() => {
-    getSession();
-  }, []);
-  return (
-    <Center w="100vw">
-      <VStack>
-        {!(session === undefined) ? (
-          <HStack>
+      }                        
+    });                        
+  };                           
+                               
+  useEffect(() => {            
+    getSession(); // eslint-disable-next-line
+  }, []);                   
+  return (            
+    <>
+      {!(session === undefined) ? 
+        <Center w="100vw">
+          
+          <VStack>
             <AddTask />
 
-            <Button pr="15px" onClick={onSignOut}>
-              Sign Out
-            </Button>
-          </HStack>
-        ) : (
-          <>"No data :("</>
-        )}
+            <VStack  overflow='hidden' overflowY='scroll' maxH='75vh'>
+              <TaskList />
+            </VStack>
+            
+            <ClearTasks />
+          </VStack>
+        </Center>
+        : //Other case starts here
 
-        <TaskList />
+        <>"No data :("</>
 
-        {whatAmIShowing()}
-      </VStack>
-    </Center>
+      }</>
   );
 }
 
